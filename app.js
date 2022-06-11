@@ -29,4 +29,10 @@ app.get("/api/animeshows", animeController.getAllAnimeShows);
 
 app.get("/api/animeshow", animeController.getAnimeShow);
 
+app.use("*", function (req, res) {
+  res
+    .status(404)
+    .json({ status: "fail", message: "This page does not exist." });
+});
+
 module.exports = app;
