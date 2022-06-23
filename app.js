@@ -5,7 +5,7 @@ const rateLimit = require("express-rate-limit");
 const mongoSanitize = require("express-mongo-sanitize");
 const xss = require("xss-clean");
 
-const animeController = require(`${__dirname}/controllers/animeController`);
+const animeRouter = require(`${__dirname}/routes/animeRoutes`);
 const globalErr = require(`${__dirname}/utils/errorMsg`);
 
 const app = express();
@@ -26,9 +26,7 @@ app.use(mongoSanitize());
 
 app.use(xss());
 
-app.get("/api/animeshows", animeController.getAllAnimeShows);
-
-app.get("/api/animeshow", animeController.getAnimeShow);
+app.use("/api", animeRouter);
 
 app.use("*", function (req, res, next) {
   return next(new Error("This page does not exist."));
