@@ -30,3 +30,5 @@ const animeShowSchema = new mongoose.Schema({
 });
 
 const AnimeShow = new mongoose.model("AnimeShow", animeShowSchema);
+
+module.exports = AnimeShow;
