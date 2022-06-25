@@ -1,3 +1,5 @@
+const AnimeShow = require(`${__dirname}/../models/animeShowModel`);
+
 exports.getAllAnimeShows = function (req, res) {
   res
     .status(200)
